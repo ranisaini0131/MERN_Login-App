@@ -1,17 +1,52 @@
-// Need to use the React-specific entry point to import createApi
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
-// Define a service using a base URL and expected endpoints
 export const profileApi = createApi({
     reducerPath: 'profileApi',
     baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:8000/api' }),
     endpoints: (builder) => ({
-        getPokemonByName: builder.query({
-            query: (name) => `pokemon/${name}`,
+        createUser: builder.mutation({
+            query: (newUser) => {
+                console.log("Create User:", newUser);
+                return {
+                    url: `registeration`,
+                    method: 'POST',
+                    body: {
+                        username: 'foo',
+                        email: 'ghj',
+                        password: '123'
+                    },
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8',
+                    }
+                }
+            }
         }),
-    }),
+
+        verifyUser: builder.mutation({
+
+        }),
+
+        //getUser by /user/:username
+        getUser: builder.query({
+            query: (username) => {
+                console.log(username)
+                return {
+                    url: ``,
+                    method: 'GET'
+                }
+            }
+        }),
+
+        updateUser: builder.mutation({
+            query: () => {
+
+            },
+
+            resetPassword: builder.mutation({
+
+            })
+        })
+    })
 })
 
-// Export hooks for usage in functional components, which are
-// auto-generated based on the defined endpoints
-export const { useGetPokemonByNameQuery } = profileApi
+const { useCreateUserMutation, useVerifyUserMutation, useGetUserQuery, useUpdateUserMutation, useResetPasswordMutation } = profileApi

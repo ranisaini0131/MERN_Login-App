@@ -65,7 +65,7 @@ class UserController {
 
     static login = async (req, res) => {
 
-        const { username, email, password, hashedPassword } = req.body
+        const { username, email, password } = req.body
         try {
             const usernameFound = await User.findOne({ username })
             console.log(usernameFound, "68")
