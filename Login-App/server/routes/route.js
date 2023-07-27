@@ -17,10 +17,11 @@ router.post('/registerationMail', UserController.registerationMail) //send the e
 
 
 //GET Methods
-router.get('/user/:username', authenticateUser, UserController.getUser)// get user with username
-router.get('/generateOTP', UserController.generateOTP)// generate random OTP
+router.get('/userProfile', authenticateUser, UserController.userProfile)// get user with username
+router.post('/generateOTP', UserController.generateOTP)// generate random OTP
 router.post('/verifyOTP', UserController.verifyOTP)//  verify generate OTP
 router.get('/createResetSession', UserController.createResetSession)// reset all variable
+router.get('/getAllUser', UserController.getAllUser)
 
 
 

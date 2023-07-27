@@ -113,22 +113,24 @@ class UserController {
     }
 
 
-    static getUser = async (req, res) => {
-        const { username } = req.params;
-        try {
-            const usernameExist = await User.findOne({ username }).select('-password')
+    static userProfile = async (req, res) => {
 
-            if (usernameExist) {
-                res.send({
-                    status: "success",
-                    message: usernameExist
-                })
-            } else {
-                res.send({
-                    status: "failed",
-                    message: "User doesn't exist"
-                })
-            }
+        try {
+            //token
+            res.send(req.user)
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    static getAllUser = async (req, res) => {
+
+        try {
+            const usernameExist = await User.find()
+            res.send(usernameExist)
 
         } catch (error) {
             console.log(error)

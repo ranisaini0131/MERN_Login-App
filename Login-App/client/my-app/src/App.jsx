@@ -6,6 +6,8 @@ import Login from './pages/Login.jsx'
 import UserProfile from './pages/UserProfile.jsx'
 import UpdateUserProfile from './pages/UpdateUserProfile.jsx'
 import ForgotPassword from './pages/ForgotPassword.jsx'
+import VerifyOTP from './pages/VerifyOTP.jsx'
+import ResetPassword from './pages/ResetPassword.jsx'
 
 
 function App() {
@@ -15,9 +17,11 @@ function App() {
         <Routes>
         <Route path='/Signup' element={ <Signup/>} />
           <Route path='/Login' element={<Login />} />
-          <Route path='/User-Profile' element={<UserProfile />} />
-          <Route path='/Update-Profile' element={<UpdateUserProfile />} />
-          <Route path='/Forgot-Password' element={<ForgotPassword />} />
+          <Route path='/UserProfile' element={<UserProfile />} />
+          <Route path='/UpdateProfile' element={<UpdateUserProfile />} />
+          <Route path='/ForgotPassword' element={<ForgotPassword />} />
+          <Route path='/VerifyOTP' element={<VerifyOTP />} />
+          <Route path='/ResetPassword' element={<ResetPassword />} />
           </Routes>
       
       </BrowserRouter>

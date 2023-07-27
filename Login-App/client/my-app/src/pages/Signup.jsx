@@ -1,13 +1,17 @@
 import React from 'react'
 import { useForm } from 'react-hook-form'
 import { useState, useDispatch } from 'react'
+import {useGetAllUserQuery,useRegisterationMutation} from '../services/profile.jsx'
 
 const Signup = () => {
 
     const { register, handleSubmit } = useForm()
+    // const { data } = useGetAllUserQuery();   
+    const [Signup] = useRegisterationMutation();
 
-    const submitForm = (data) => {
-        console.log(data,"19")
+    const submitForm = async (DATA) => {
+        const res = await Signup(DATA)
+        console.log(res,"16")
     }
    
     return (
