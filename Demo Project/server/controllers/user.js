@@ -126,39 +126,6 @@ class UserController {
 
     }
 
-    static getAllUser = async (req, res) => {
-
-        try {
-            const usernameExist = await User.find()
-            res.send(usernameExist)
-
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-
-
-    static updateUser = async (req, res) => {
-        try {
-            const updatedUser = await User.findByIdAndUpdate(req.user._id, req.body)
-
-            res.send({
-                status: "success",
-                message: updatedUser
-            })
-        }
-
-        catch (error) {
-            console.log(error)
-            res.send({
-                status: "failed",
-                message: "User Not Found !!"
-            })
-        }
-    }
-
-
     static registerationMail = async (req, res) => {
         try {
             res.send({
@@ -225,18 +192,6 @@ class UserController {
                     message: "Wrong OTP"
                 })
             }
-        } catch (error) {
-            console.log(error)
-        }
-
-    }
-
-    static createResetSession = async (req, res) => {
-        try {
-            res.send({
-                status: "success",
-                message: "createResetSession route"
-            })
         } catch (error) {
             console.log(error)
         }
